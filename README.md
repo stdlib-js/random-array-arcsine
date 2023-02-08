@@ -22,27 +22,37 @@ limitations under the License.
 
 [![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
-> Create an array with [arcsine][@stdlib/random/base/arcsine] distributed pseudorandom numbers.
+> Create an array containing pseudorandom numbers drawn from an [arcsine][@stdlib/random/base/arcsine] distribution.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/random-array-arcsine
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@esm/index.mjs';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@esm/index.mjs';
+var arcsine = require( '@stdlib/random-array-arcsine' );
 ```
 
 #### arcsine( len, a, b\[, options] )
 
-Returns an array with [arcsine][@stdlib/random/base/arcsine] distributed pseudorandom numbers.
+Returns an array containing pseudorandom numbers drawn from an [arcsine][@stdlib/random/base/arcsine] distribution.
 
 ```javascript
 var out = arcsine( 10, 2.0, 5.0 );
@@ -73,7 +83,7 @@ var out = arcsine( 10, 2.0, 5.0, opts );
 
 #### arcsine.factory( \[a, b, ]\[options] )
 
-Returns a function for creating arrays with [arcsine][@stdlib/random/base/arcsine] distributed pseudorandom numbers.
+Returns a function for creating arrays containing pseudorandom numbers drawn from an [arcsine][@stdlib/random/base/arcsine] distribution.
 
 ```javascript
 var random = arcsine.factory();
@@ -120,7 +130,7 @@ The function accepts the following `options`:
 To use a custom PRNG as the underlying source of uniformly distributed pseudorandom numbers, set the `prng` option.
 
 ```javascript
-import minstd from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd@esm/index.mjs';
+var minstd = require( '@stdlib/random-base-minstd' );
 
 var opts = {
     'prng': minstd.normalized
@@ -183,7 +193,7 @@ var seed = arcsine.seed;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = arcsine.factory( 2.0, 5.0, {
     'prng': minstd
@@ -205,7 +215,7 @@ var len = arcsine.seedLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = arcsine.factory( 2.0, 5.0, {
     'prng': minstd
@@ -227,7 +237,7 @@ var state = arcsine.state;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = arcsine.factory( 2.0, 5.0, {
     'prng': minstd
@@ -249,7 +259,7 @@ var len = arcsine.stateLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = arcsine.factory( 2.0, 5.0, {
     'prng': minstd
@@ -271,7 +281,7 @@ var sz = arcsine.byteLength;
 If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
 
 ```javascript
-var minstd = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle' ).normalized;
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
 
 var random = arcsine.factory( 2.0, 5.0, {
     'prng': minstd
@@ -302,14 +312,9 @@ var sz = random.byteLength;
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@esm/index.mjs';
-import arcsine from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@esm/index.mjs';
+```javascript
+var logEach = require( '@stdlib/console-log-each' );
+var arcsine = require( '@stdlib/random-array-arcsine' );
 
 // Create a function for generating random arrays originating from the same state:
 var random = arcsine.factory( 2.0, 5.0, {
@@ -336,10 +341,6 @@ var x4 = random( 15 );
 
 // Print the contents:
 logEach( '%f', x4 );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -363,7 +364,7 @@ logEach( '%f', x4 );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -423,11 +424,11 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/random-array-arcsine/main/LICENSE
 
-[@stdlib/random/base/arcsine]: https://github.com/stdlib-js/random-base-arcsine/tree/esm
+[@stdlib/random/base/arcsine]: https://github.com/stdlib-js/random-base-arcsine
 
-[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32/tree/esm
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/esm
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
 </section>
 
