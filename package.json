@@ -57,12 +57,15 @@
   "devDependencies": {
     "@stdlib/array-float32": "^0.0.6",
     "@stdlib/array-float64": "^0.0.6",
+    "@stdlib/array-uint32": "^0.0.6",
     "@stdlib/assert-is-uint32array": "^0.0.8",
     "@stdlib/bench": "^0.0.12",
     "@stdlib/console-log-each": "^0.0.2",
+    "@stdlib/constants-uint32-max": "^0.0.7",
     "@stdlib/math-base-assert-is-nan": "^0.0.8",
     "@stdlib/math-base-assert-is-nanf": "^0.0.8",
     "@stdlib/math-base-special-pow": "^0.0.7",
+    "@stdlib/random-base-minstd": "^0.0.6",
     "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
     "istanbul": "^0.4.1",
     "tap-min": "git+https://github.com/Planeshifter/tap-min.git"
