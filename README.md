@@ -22,7 +22,7 @@ limitations under the License.
 
 [![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
-> Create an array with [arcsine][@stdlib/random/base/arcsine] distributed pseudorandom numbers.
+> Create an array containing pseudorandom numbers drawn from an [arcsine][@stdlib/random/base/arcsine] distribution.
 
 <section class="installation">
 
@@ -52,7 +52,7 @@ var arcsine = require( '@stdlib/random-array-arcsine' );
 
 #### arcsine( len, a, b\[, options] )
 
-Returns an array with [arcsine][@stdlib/random/base/arcsine] distributed pseudorandom numbers.
+Returns an array containing pseudorandom numbers drawn from an [arcsine][@stdlib/random/base/arcsine] distribution.
 
 ```javascript
 var out = arcsine( 10, 2.0, 5.0 );
@@ -83,7 +83,7 @@ var out = arcsine( 10, 2.0, 5.0, opts );
 
 #### arcsine.factory( \[a, b, ]\[options] )
 
-Returns a function for creating arrays with [arcsine][@stdlib/random/base/arcsine] distributed pseudorandom numbers.
+Returns a function for creating arrays containing pseudorandom numbers drawn from an [arcsine][@stdlib/random/base/arcsine] distribution.
 
 ```javascript
 var random = arcsine.factory();
