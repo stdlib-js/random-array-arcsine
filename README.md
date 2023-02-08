@@ -24,38 +24,30 @@ limitations under the License.
 
 > Create an array with [arcsine][@stdlib/random/base/arcsine] distributed pseudorandom numbers.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/random-array-arcsine
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-arcsine = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var arcsine = require( 'path/to/vendor/umd/random-array-arcsine/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.arcsine;
-})();
-</script>
+var arcsine = require( '@stdlib/random-array-arcsine' );
 ```
 
 #### arcsine( len, a, b\[, options] )
@@ -78,7 +70,7 @@ The function accepts the following `options`:
 
 -   **dtype**: output array data type. Must be a real-valued floating-point data type or "generic". Default: `'float64'`.
 
-By default, the function returns a `Float64Array`. To return an array having a different data type, set the `dtype` option.
+By default, the function returns a [`Float64Array`][@stdlib/array/float64]. To return an array having a different data type, set the `dtype` option.
 
 ```javascript
 var opts = {
@@ -161,15 +153,6 @@ var out = random( 10, opts );
 // returns <Float64Array>
 ```
 
-The returned function has the following properties:
-
--   **seed**: pseudorandom number generator seed. If provided a `prng` option, the property value is `null`.
--   **seedLength**: length of generator seed. If provided a `prng` option, the property value is `null`.
--   **state**: writable property for getting and setting the generator state. If provided a `prng` option, the property value is `null`.
--   **stateLength**: length of generator state. If provided a `prng` option, the property value is `null`.
--   **byteLength**: size (in bytes) of generator state. If provided a `prng` option, the property value is `null`.
--   **PRNG**: underlying pseudorandom number generator.
-
 The returned function accepts the following `options`:
 
 -   **dtype**: output array data type. Must be a real-valued floating-point data type or "generic". This overrides the default output array data type.
@@ -187,6 +170,125 @@ var opts = {
 };
 out = random( 10, opts );
 // returns [...]
+```
+
+#### arcsine.PRNG
+
+The underlying pseudorandom number generator.
+
+```javascript
+var prng = arcsine.PRNG;
+// returns <Function>
+```
+
+#### arcsine.seed
+
+The value used to seed the underlying pseudorandom number generator.
+
+```javascript
+var seed = arcsine.seed;
+// returns <Uint32Array>
+```
+
+If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
+
+```javascript
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+
+var random = arcsine.factory( 2.0, 5.0, {
+    'prng': minstd
+});
+
+var seed = random.seed;
+// returns null
+```
+
+#### arcsine.seedLength
+
+Length of underlying pseudorandom number generator seed.
+
+```javascript
+var len = arcsine.seedLength;
+// returns <number>
+```
+
+If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
+
+```javascript
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+
+var random = arcsine.factory( 2.0, 5.0, {
+    'prng': minstd
+});
+
+var len = random.seedLength;
+// returns null
+```
+
+#### arcsine.state
+
+Writable property for getting and setting the underlying pseudorandom number generator state.
+
+```javascript
+var state = arcsine.state;
+// returns <Uint32Array>
+```
+
+If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
+
+```javascript
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+
+var random = arcsine.factory( 2.0, 5.0, {
+    'prng': minstd
+});
+
+var state = random.state;
+// returns null
+```
+
+#### arcsine.stateLength
+
+Length of underlying pseudorandom number generator state.
+
+```javascript
+var len = arcsine.stateLength;
+// returns <number>
+```
+
+If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
+
+```javascript
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+
+var random = arcsine.factory( 2.0, 5.0, {
+    'prng': minstd
+});
+
+var len = random.stateLength;
+// returns null
+```
+
+#### arcsine.byteLength
+
+Size (in bytes) of underlying pseudorandom number generator state.
+
+```javascript
+var sz = arcsine.byteLength;
+// returns <number>
+```
+
+If the `factory` method is provided a PRNG for uniformly distributed numbers, the associated property value on the returned function is `null`.
+
+```javascript
+var minstd = require( '@stdlib/random-base-minstd-shuffle' ).normalized;
+
+var random = arcsine.factory( 2.0, 5.0, {
+    'prng': minstd
+});
+
+var sz = random.byteLength;
+// returns null
 ```
 
 </section>
@@ -210,14 +312,9 @@ out = random( 10, opts );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var logEach = require( '@stdlib/console-log-each' );
+var arcsine = require( '@stdlib/random-array-arcsine' );
 
 // Create a function for generating random arrays originating from the same state:
 var random = arcsine.factory( 2.0, 5.0, {
@@ -244,11 +341,6 @@ var x4 = random( 15 );
 
 // Print the contents:
 logEach( '%f', x4 );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -332,9 +424,11 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/random-array-arcsine/main/LICENSE
 
-[@stdlib/random/base/arcsine]: https://github.com/stdlib-js/random-base-arcsine/tree/umd
+[@stdlib/random/base/arcsine]: https://github.com/stdlib-js/random-base-arcsine
 
-[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32/tree/umd
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
+
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
 </section>
 
