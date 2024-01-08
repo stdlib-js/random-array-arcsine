@@ -35,38 +35,30 @@ limitations under the License.
 
 > Create an array containing pseudorandom numbers drawn from an [arcsine][@stdlib/random/base/arcsine] distribution.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/random-array-arcsine
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-arcsine = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var arcsine = require( 'path/to/vendor/umd/random-array-arcsine/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.arcsine;
-})();
-</script>
+var arcsine = require( '@stdlib/random-array-arcsine' );
 ```
 
 #### arcsine( len, a, b\[, options] )
@@ -99,6 +91,29 @@ var opts = {
 var out = arcsine( 10, 2.0, 5.0, opts );
 // returns [...]
 ```
+
+#### arcsine.assign( a, b, out )
+
+Fills an array with pseudorandom numbers drawn from an [arcsine][@stdlib/random/base/arcsine] distribution.
+
+```javascript
+var zeros = require( '@stdlib/array-zeros' );
+
+var x = zeros( 10, 'float64' );
+// returns <Float64Array>
+
+var out = arcsine.assign( 2.0, 5.0, x );
+// returns <Float64Array>
+
+var bool = ( out === x );
+// returns true
+```
+
+The function has the following parameters:
+
+-   **a**: minimum support.
+-   **b**: maximum support.
+-   **out**: output array.
 
 #### arcsine.factory( \[a, b, ]\[options] )
 
@@ -331,14 +346,9 @@ var sz = random.byteLength;
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-arcsine@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var logEach = require( '@stdlib/console-log-each' );
+var arcsine = require( '@stdlib/random-array-arcsine' );
 
 // Create a function for generating random arrays originating from the same state:
 var random = arcsine.factory( 2.0, 5.0, {
@@ -365,11 +375,6 @@ var x4 = random( 15 );
 
 // Print the contents:
 logEach( '%f', x4 );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -460,17 +465,17 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/random-array-arcsine/main/LICENSE
 
-[@stdlib/random/base/arcsine]: https://github.com/stdlib-js/random-base-arcsine/tree/umd
+[@stdlib/random/base/arcsine]: https://github.com/stdlib-js/random-base-arcsine
 
-[@stdlib/array/typed-real-float-dtypes]: https://github.com/stdlib-js/array-typed-real-float-dtypes/tree/umd
+[@stdlib/array/typed-real-float-dtypes]: https://github.com/stdlib-js/array-typed-real-float-dtypes
 
-[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32/tree/umd
+[@stdlib/array/uint32]: https://github.com/stdlib-js/array-uint32
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/umd
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
 <!-- <related-links> -->
 
-[@stdlib/random/strided/arcsine]: https://github.com/stdlib-js/random-strided-arcsine/tree/umd
+[@stdlib/random/strided/arcsine]: https://github.com/stdlib-js/random-strided-arcsine
 
 <!-- </related-links> -->
 
