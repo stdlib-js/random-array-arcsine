@@ -391,6 +391,7 @@ logEach( '%f', x4 );
 
 ## See Also
 
+-   <span class="package-name">[`@stdlib/random-arcsine`][@stdlib/random/arcsine]</span><span class="delimiter">: </span><span class="description">generate pseudorandom numbers drawn from an arcsine distribution.</span>
 -   <span class="package-name">[`@stdlib/random-base/arcsine`][@stdlib/random/base/arcsine]</span><span class="delimiter">: </span><span class="description">arcsine distributed pseudorandom numbers.</span>
 -   <span class="package-name">[`@stdlib/random-strided/arcsine`][@stdlib/random/strided/arcsine]</span><span class="delimiter">: </span><span class="description">fill a strided array with pseudorandom numbers drawn from an arcsine distribution.</span>
 
@@ -479,6 +480,8 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 [@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
 <!-- <related-links> -->
+
+[@stdlib/random/arcsine]: https://github.com/stdlib-js/random-arcsine
 
 [@stdlib/random/strided/arcsine]: https://github.com/stdlib-js/random-strided-arcsine
 
